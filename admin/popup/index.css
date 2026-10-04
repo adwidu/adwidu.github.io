@@ -1,0 +1,264 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+
+  width: 100%;
+  min-height: 100%;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  color: #202020;
+
+  background:
+    radial-gradient(circle at 15% 20%,
+      rgba(255, 255, 255, 0.9),
+      transparent 35%),
+    radial-gradient(circle at 85% 80%,
+      rgba(180, 200, 255, 0.35),
+      transparent 40%),
+    linear-gradient(135deg,
+      #eef1f5,
+      #dce2ea,
+      #f4f5f7);
+
+  background-attachment: fixed;
+
+  transition:
+    background 0.4s ease,
+    color 0.3s ease;
+}
+
+.popup-container {
+  width: 100%;
+  min-height: 100vh;
+
+  padding: 28px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.popup-container p {
+  margin: 0;
+
+  width: fit-content;
+  max-width: 100%;
+
+  padding: 12px 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.2);
+
+  box-shadow:
+    0 4px 18px rgba(31, 38, 135, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  font-size: 17px;
+  font-weight: 500;
+
+  text-align: center;
+}
+
+.popup-buttons {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.btn-aceptar,
+.btn-cancelar {
+  min-width: 115px;
+  min-height: 40px;
+
+  padding: 9px 16px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 999px;
+
+  cursor: pointer;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-aceptar {
+  background: rgba(107, 146, 83, 0.42);
+  color: #35552d;
+
+  box-shadow:
+    0 4px 18px rgba(31, 38, 135, 0.08);
+}
+
+.btn-cancelar {
+  background: rgba(162, 115, 115, 0.42);
+  color: #5c3030;
+
+  box-shadow:
+    0 4px 18px rgba(31, 38, 135, 0.08);
+}
+
+.btn-aceptar:hover {
+  background: rgba(16, 152, 20, 0.78);
+  color: #073f08;
+
+  transform: translateY(-2px);
+}
+
+.btn-cancelar:hover {
+  background: rgba(152, 16, 16, 0.78);
+  color: #4b0000;
+
+  transform: translateY(-2px);
+}
+
+.btn-aceptar:active,
+.btn-cancelar:active {
+  transform: scale(0.96);
+}
+
+.btn-aceptar:focus-visible,
+.btn-cancelar:focus-visible {
+  outline: 2px solid #005fcc;
+  outline-offset: 3px;
+}
+
+.icono-check,
+.icono-cruces {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+
+  font-size: 17px;
+  line-height: 1;
+  font-weight: 500;
+}
+
+body.dark {
+  color: white;
+
+  background:
+    radial-gradient(circle at 15% 20%,
+      rgba(90, 90, 110, 0.25),
+      transparent 35%),
+    radial-gradient(circle at 85% 80%,
+      rgba(80, 90, 130, 0.22),
+      transparent 40%),
+    linear-gradient(135deg,
+      #17181c,
+      #24262c,
+      #15161a);
+}
+
+body.dark .popup-container p {
+  border-color: rgba(255, 255, 255, 0.12);
+
+  background: rgba(25, 25, 30, 0.34);
+
+  color: white;
+
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+body.dark .btn-aceptar {
+  border-color: rgba(255, 255, 255, 0.1);
+
+  background: rgba(107, 146, 83, 0.35);
+
+  color: #b8d5b5;
+}
+
+body.dark .btn-cancelar {
+  border-color: rgba(255, 255, 255, 0.1);
+
+  background: rgba(162, 115, 115, 0.35);
+
+  color: #e2bcbc;
+}
+
+body.dark .btn-aceptar:hover {
+  background: rgba(16, 152, 20, 0.72);
+  color: #baf5b7;
+}
+
+body.dark .btn-cancelar:hover {
+  background: rgba(152, 16, 16, 0.72);
+  color: #ffd0d0;
+}
+
+@media (max-width: 600px) {
+
+  .popup-container {
+    padding: 20px 14px;
+  }
+
+  .popup-container p {
+    max-width: 100%;
+
+    padding: 11px 15px;
+
+    font-size: 14px;
+  }
+
+  .popup-buttons {
+    gap: 10px;
+  }
+
+  .btn-aceptar,
+  .btn-cancelar {
+    min-width: 0;
+    width: 50%;
+
+    padding: 9px 8px;
+  }
+
+  .icono-check,
+  .icono-cruces {
+    font-size: 14px;
+  }
+}

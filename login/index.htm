@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta charset="utf-8" />
+
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+  <input type="checkbox" id="theme-toggle">
+
+  <label for="theme-toggle" class="themeBtn" aria-label="Cambiar tema">
+    <svg class="sunIcon" viewBox="0 0 24 24" aria-hidden="true">
+      <circle cx="12" cy="12" r="4"></circle>
+      <path d="M12 2v2
+                     M12 20v2
+                     M4.93 4.93l1.41 1.41
+                     M17.66 17.66l1.41 1.41
+                     M2 12h2
+                     M20 12h2
+                     M4.93 19.07l1.41-1.41
+                     M17.66 6.34l1.41-1.41">
+      </path>
+    </svg>
+
+    <svg class="moonIcon" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5A8.5 8.5 0 1 0 20.5 14.5Z">
+      </path>
+    </svg>
+  </label>
+
+  <main class="login-container">
+
+    <section class="login-card">
+
+      <div class="login-header">
+        <h1>Login</h1>
+      </div>
+
+      <form id="login-form">
+
+        <label class="input-label">
+          <span>Password</span>
+
+          <input id="password" type="password" required autocomplete="current-password" placeholder="••••••••">
+        </label>
+
+        <button class="login-button" type="submit">
+          Log in
+        </button>
+
+        <p id="message" role="status"></p>
+
+      </form>
+      
+    </section>
+  </main>
+
+  <script type="module">
+    import { createClient } from
+      'https://esm.sh/@supabase/supabase-js@2'
+
+    const SUPABASE_URL = 'https://pxodngysquyfzrhdiebt.supabase.co'
+    const SUPABASE_KEY = 'sb_publishable_PE-oQ-ZHUp3GjeNyCdYrLg_wAICfAyD'
+
+    const supabase = createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
+    )
+
+    const form = document.querySelector('#login-form')
+    const message = document.querySelector('#message')
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault()
+
+      message.textContent = 'hmm..'
+
+      const email = "alianzascrs@hallo.com"
+      const password = document.querySelector('#password').value
+
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      })
+
+      if (error) {
+        message.textContent = 'Nope.'
+        return
+      }
+
+      window.location.href = '../admin/'
+    })
+  </script>
+
+</body>
+
+</html>

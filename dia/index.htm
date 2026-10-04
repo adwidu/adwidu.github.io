@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="index.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+
+    <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body onload="updateTable(); loadTheme(); document.getElementsByClassName(`botonDia`)[0].innerHTML = `Cambiar dia! (Viendo dia ${ (() => {if(dbS == 'second_day') { return '2'} else { return '1' }}) ()})`">
+
+    <main>
+
+        <button class="themeBtn" onclick="toggleTheme()" aria-label="Cambiar tema">
+
+            <svg class="sunIcon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"></circle>
+
+                <path d="M12 2v2
+                         M12 20v2
+                         M4.93 4.93l1.41 1.41
+                         M17.66 17.66l1.41 1.41
+                         M2 12h2
+                         M20 12h2
+                         M4.93 19.07l1.41-1.41
+                         M17.66 6.34l1.41-1.41">
+                </path>
+            </svg>
+
+            <svg class="moonIcon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5A8.5 8.5 0 1 0 20.5 14.5Z">
+                </path>
+            </svg>
+
+        </button>
+
+        <div class="table"></div>
+
+        <button class="btnDia"
+            onclick="console.log(dbS); if(dbS == 'second_day') {dbS='first_day'; document.getElementsByClassName(`botonDia`)[0].innerHTML = `Cambiar dia! (Viendo dia 1)` } else { dbS='second_day'; document.getElementsByClassName(`botonDia`)[0].innerHTML = `Cambiar dia! (Viendo dia 2)` } loadScores()">
+            <p class="botonDia">Cambiar dia! (Viendo dia: 1)</p>
+        </button>
+
+        <footer>
+            <p>Made by David Kelly & Antonella Winterstein with &lt3</p>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>

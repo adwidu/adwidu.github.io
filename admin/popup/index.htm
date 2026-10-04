@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <link rel="stylesheet" href="index.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+
+    <script src="index.js"></script>
+</head>
+
+<body onload="changeTheme()">
+
+    <main class="popup-container">
+
+        <p>Borrar todos los puntajes?</p>
+
+        <div class="popup-buttons">
+
+            <button class="btn-aceptar" aria-label="Aceptar" onclick="yes()">
+                <span class="icono-check">&check; Claro!</span>
+            </button>
+
+            <button class="btn-cancelar" aria-label="Cancelar" onclick="no()">
+                <span class="icono-cruces">&times; Nunca!</span>
+            </button>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
