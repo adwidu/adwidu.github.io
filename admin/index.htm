@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body onload="updateTable(); loadTheme(); document.getElementsByClassName(`botonDia`)[0].innerHTML = `Cambiar dia! (Viendo dia ${ (() => {if(dbS == 'second_day') { return '2'} else if (dbS == "first_day") { return '1' } else { return "Oculto"}}) ()})`">
+<body onload="updateTable(); loadTheme(); document.getElementsByClassName(`botonDia`)[0].innerHTML = `Cambiar dia! (Viendo dia ${ (() => {if(dbS == 'second_day') { return '2'} else if (dbS == "first_day") { return '1' } else { return 'Oculto'}}) ()})`">
     <main id="protected-content" hidden>
       <button class="themeBtn" onclick="toggleTheme()" aria-label="Cambiar tema">
         <svg class="sunIcon" viewBox="0 0 24 24" aria-hidden="true">
